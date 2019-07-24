@@ -32,10 +32,31 @@ let titleD = characters.filter(charactertitle => charactertitle.titles.length >=
 console.log(titleD[0].name);
 
 // How many are Valyrian?
+let cultureV = characters.filter(charactercult => charactercult.culture=== "Valyrian");
+console.log(cultureV.length);
 
 // What actor plays "Hot Pie" (and don't use IMDB)?
+let hotPie = characters.filter(charPie => charPie.name ==="Hot Pie"); 
+console.log(hotPie[0].playedBy);
 // How many characters are *not* in the tv show?
+let charMap = characters.map(tvOrNo => tvOrNo.tvSeries)
+let noTv = charMap.filter(function(data){
+    if (data ==''){
+        return data
+    }
+});
+console.log(noTv.length);
+
 // Produce a list characters with the last name "Targaryen"
+// let lastName = characters.filter(tarName => tarName.namesincludes( "Targaryen"));
+// console.log(lastName); tried filter a lot
+names = characters.map(name => name.name)
+let lNameTargaryen = names.filter(function(data){
+    if (data.includes("Targaryen")){
+        return data
+    }
+})
+console.log(lNameTargaryen);
 // Create a histogram of the houses (it's the "allegiances" key)
 
 
