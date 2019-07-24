@@ -19,7 +19,7 @@ console.log(characters[0].name[0]);
 
 // How many characters names start with "A"?
 let thisA = characters.filter(charA => (charA.name[0]==="A"));
-console.log(thisA);
+console.log(thisA.length);
 // How many characters names start with "Z"?
 let thisZ = characters.filter(charZ => (charZ.name[0]==="Z"));
 console.log(thisZ.length);
@@ -58,8 +58,7 @@ let lNameTargaryen = names.filter(function(data){
 })
 console.log(lNameTargaryen);
 // Create a histogram of the houses (it's the "allegiances" key)
-
-
+// I'm going to ask you how to make a histogram in the morning
 
 
 // After you are finished, submit a Pull Request for code review.
