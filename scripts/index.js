@@ -6,7 +6,7 @@ let parsedInfo = characters.map( (char) => {
     return {
         name: `${char.name}`,
         dead: `${char.died}`,
-        titles: `${char.titles}`,
+        titles: char.titles,
         culture: `${char.culture}`,
         actor: `${char.playedBy}`,
         allegiances: char.allegiances,
@@ -117,7 +117,7 @@ console.log(`There are ${nameStartsWith("z").length} characters in GOT whose nam
 console.log(`There are ${isDead().length} characters in GOT who are dead`);
 
 // QUESTION: Who has the most titles?
-// ANSWER: Daenerys Targaryen (181 titles), returned by titlesMostToLeast()[0].name
+// ANSWER: Balon Greyjoy (7 titles), returned by titlesMostToLeast()[0].name
 
 console.log(`${titlesMostToLeast()[0].name} has the most titles at ${titlesMostToLeast()[0].titles.length}.
 ${titlesMostToLeast()[1].name} has the second most titles at ${titlesMostToLeast()[1].titles.length}.
