@@ -13,14 +13,14 @@ var NameWithA = names.filter(function(data){
     return data 
 }
 });
-console.log(NameWithA.length);
+console.log(`Names with first letter of A: ${NameWithA.length}`);
 // How many characters names start with "Z"?
 var NameWithZ = names.filter(function(data){
     if (data[0].toLowerCase() == 'z'){
     return data 
 }
 });
-console.log(NameWithZ.length);
+console.log(`Names with first letters Z: ${NameWithZ.length}`);
 // How many characters are dead?
 
 deadChar = characters.map(dead => dead.died)
@@ -29,7 +29,7 @@ var NameWithdead = deadChar.filter(function(data){
     return data 
 }
 });
-console.log(NameWithdead.length);
+console.log(`Number of dead: ${NameWithdead.length}`);
 // Who has the most titles?
 var charTitleslength = characters.map(title => title.titles.length)
 const mostTitles = charTitleslength.reduce(function(prev, current, index) {
@@ -43,7 +43,7 @@ var charCultureVal = charCul.filter(function(data){
     return data 
 }
 });
-console.log(charCultureVal.length)
+console.log(`NUmber of Valyrian: ${charCultureVal.length}`)
 // What actor plays "Hot Pie" (and don't use IMDB)?
 var charPlayed = characters.map(cul => cul.playedBy)
 let realIndexPlayed;
@@ -54,9 +54,9 @@ var charPlayedIndex = names.filter(function(data, index){
     return index
     }
 });
-console.log(charPlayedIndex)
-console.log(charPlayed[1497])
-console.log(charPlayed[realIndexPlayed])
+// console.log(charPlayedIndex)
+// console.log(charPlayed[1497])
+console.log(`Who played hot pie: ${charPlayed[realIndexPlayed]}`)
 // How many characters are *not* in the tv show?
 
 var charTvSeries = characters.map(cul => cul.tvSeries)
@@ -65,7 +65,7 @@ var charNotOnTv = charTvSeries.filter(function(data){
     return data
 }
 })
-console.log(`hello ${charNotOnTv.length}`)
+console.log(`Whos not on the tv show: ${charNotOnTv.length}`)
 
 // Produce a list characters with the last name "Targaryen"
 var lastnameTargaryen = names.filter(function(data){
@@ -73,34 +73,36 @@ var lastnameTargaryen = names.filter(function(data){
     return data
 }
 })
-console.log(lastnameTargaryen)
+console.log(`Who last name is Targaryen:\n${lastnameTargaryen}`)
 // Create a histogram of the houses (it's the "allegiances" key)
 
 var charHouses = characters.map(cul => cul.allegiances)
-console.log(charHouses)
+// var charHouses = charHouses1.forEach((element, index) => {
+    
+// })
+
 let houseHisto = {};
 let housedata;
 let getHisto= charHouses.forEach(element => {
     element.forEach(eleItems =>{
-        fetch(eleItems).then(res=>res.json()).then(res=>{
-            housedata = res.name;
+        housedata = houses[eleItems];
+       
             if(houseHisto[housedata]){
                  houseHisto[housedata] += 1; 
             }else{                 
                 houseHisto[housedata] = 1; 
             }
-            console.log(getHisto);
             //cant get it to show after this is executed
 
-    })
+    
     
 })
 });
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    console.log(houseHisto);
-});
+console.log(`Histogram of People in Houses:`);
+console.log(houseHisto);
+// document.addEventListener('DOMContentLoaded', () => {
+//     
+// });
 
 
 // After you are finished, submit a Pull Request for code review
