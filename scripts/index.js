@@ -1,7 +1,4 @@
 console.log(`There are ${characters.length} characters in the array.`);
-console.log(characters[0]);
-console.log(characters[1]);
-console.log(characters[2]);
 
 // For each of these questions, write a function that returns the answer.
 
@@ -44,14 +41,45 @@ console.log(numValyrian)
 // const hotPieActor = actorCharacters.filter(characterLst => characterLst[0] === 'Hot Pie')[0][1];
 // console.log(hotPieActor[0]);
 
-const actorCharacters = characters.map(function (character) { return{'name':character.name, 'playedBy':character.playedBy}});
+const actorCharacters = characters.map(function (character) { return {'name':character.name, 'playedBy':character.playedBy}});
 const hotPieActor = actorCharacters.filter(characterLst => characterLst.name === 'Hot Pie')[0].playedBy;
 console.log(hotPieActor[0]);
 
 // How many characters are *not* in the tv show?
+const showCharacters = characters.map(character => character.tvSeries);
+const numShowChars = showCharacters.filter(character => character[0]).length
+console.log(numShowChars);
+
 // Produce a list characters with the last name "Targaryen"
+numTargs = numChars.filter(char => char.split(' ').includes('Targaryen')).length
+console.log(numTargs);
+
+
 // Create a histogram of the houses (it's the "allegiances" key)
- 
+const charAllegiances = characters.map(char => char.allegiances)
+let alleginceTally = {};
+
+function countAllegianceTotals(charArray) {
+    charArray.forEach(arr => {
+        arr.forEach(item => {
+            if (!alleginceTally[item]){
+                alleginceTally[item] = 1;
+            } else {
+                alleginceTally[item]++;
+            }
+        })
+    })
+}
+
+countAllegianceTotals(charAllegiances)
+console.log(alleginceTally);
+
+//
+//
+// Somehow Make a Histogram 
+//
+//
+
 
 
 // After you are finished, submit a Pull Request for code review.
